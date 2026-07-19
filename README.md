@@ -3,9 +3,9 @@
 ![Vercel Live](https://img.shields.io/badge/Vercel-Deployed-blueviolet?style=flat-square) ![License](https://img.shields.io/badge/License-MIT-green?style=flat-square) ![Node.js](https://img.shields.io/badge/Node.js-18+-green?style=flat-square) ![MySQL](https://img.shields.io/badge/MySQL-8+-blue?style=flat-square) ![Gemini](https://img.shields.io/badge/Gemini-AI-orange?style=flat-square)
 
 ### 📸 Premium Interface Previews
-| **Futuristic Night Pitch Landing** | **Operations Command Center** |
+| **Futuristic Night Pitch Landing** | **Interactive Fan Portal Map** |
 | --- | --- |
-| ![Landing Page Preview](docs/screenshots/landing.png) | ![Organizer Dashboard Preview](docs/screenshots/dashboard.png) |
+| ![Landing Page Preview](docs/screenshots/landing.png) | ![Interactive Map Preview](docs/screenshots/dashboard.png) |
 
 StadiumAI is an award-winning, GenAI-powered Stadium Operations & Fan Experience Platform built specifically for the **FIFA World Cup 2026** at MetLife Stadium. 
 
