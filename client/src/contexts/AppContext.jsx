@@ -70,8 +70,8 @@ export const AppProvider = ({ children }) => {
       setStadiumData({ gates: mockGates, foodStalls: mockFood, transport: mockTransport, medicalStations: mockMedical });
       
       setCurrentMatch({
-        homeTeam: 'Brazil',
-        awayTeam: 'Germany',
+        homeTeam: 'Argentina',
+        awayTeam: 'Spain',
         homeScore: 2,
         awayScore: 1,
         minute: 67,
