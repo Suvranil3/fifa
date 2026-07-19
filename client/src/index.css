@@ -1,0 +1,201 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom scrollbar - thin, dark themed */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #0a0e27; }
+::-webkit-scrollbar-thumb { background: #2a2f5e; border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #d4af37; }
+
+/* Base styles */
+body { @apply bg-primary text-white font-sans antialiased; }
+
+/* Keyframe animations */
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes slideInLeft { from { opacity: 0; transform: translateX(-20px); } to { opacity: 1; transform: translateX(0); } }
+@keyframes pulseGlow { 0%, 100% { box-shadow: 0 0 5px rgba(212, 175, 55, 0.3); } 50% { box-shadow: 0 0 20px rgba(212, 175, 55, 0.6); } }
+@keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-10px); } }
+@keyframes shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
+@keyframes typing { 0% { opacity: 0.3; } 50% { opacity: 1; } 100% { opacity: 0.3; } }
+@keyframes countUp { from { opacity: 0; transform: scale(0.5); } to { opacity: 1; transform: scale(1); } }
+
+/* Glass card */
+@layer components {
+  .glass-card {
+    @apply bg-[#131842]/80 backdrop-blur-xl border border-white/5 rounded-2xl;
+  }
+  .glass-card-hover {
+    @apply glass-card transition-all duration-300 hover:border-accent-gold/30 hover:shadow-lg hover:shadow-accent-gold/5;
+  }
+  .gradient-gold { background: linear-gradient(135deg, #d4af37, #f4d03f); }
+  .gradient-crimson { background: linear-gradient(135deg, #c41e3a, #e74c3c); }
+  .gradient-blue { background: linear-gradient(135deg, #1e90ff, #00bfff); }
+  .gradient-green { background: linear-gradient(135deg, #10b981, #34d399); }
+  .text-gradient-gold { background: linear-gradient(135deg, #d4af37, #f4d03f); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  .status-badge { @apply px-2.5 py-0.5 rounded-full text-xs font-semibold; }
+  .btn-primary { @apply px-4 py-2 rounded-xl font-semibold transition-all duration-300 bg-accent-gold text-primary hover:shadow-lg hover:shadow-accent-gold/25 hover:-translate-y-0.5 active:translate-y-0; }
+  .btn-secondary { @apply px-4 py-2 rounded-xl font-semibold transition-all duration-300 bg-white/10 text-white hover:bg-white/20 border border-white/10; }
+  .input-dark { @apply w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-500 focus:outline-none focus:border-accent-gold/50 focus:ring-1 focus:ring-accent-gold/25 transition-all; }
+}
+
+/* Loading skeleton */
+.skeleton {
+  background: linear-gradient(90deg, #131842 25%, #1a1f4e 50%, #131842 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Leaflet dark theme overrides */
+.leaflet-container { background: #0a0e27 !important; border-radius: 1rem; }
+.leaflet-popup-content-wrapper { background: #131842 !important; color: white !important; border: 1px solid rgba(255,255,255,0.1) !important; border-radius: 12px !important; }
+.leaflet-popup-tip { background: #131842 !important; }
+.leaflet-control-zoom a { background: #131842 !important; color: white !important; border-color: rgba(255,255,255,0.1) !important; }
+.leaflet-control-zoom a:hover { background: #1a1f4e !important; }
+
+/* Custom Landing Typography Utilities */
+.hero-title {
+  font-family: 'Readex Pro', system-ui, -apple-system, sans-serif;
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+  text-transform: lowercase;
+}
+.font-readex {
+  font-family: 'Readex Pro', system-ui, -apple-system, sans-serif;
+}
+
+/* Cinematic Ken Burns zoom keyframe animation */
+@keyframes kenburns {
+  0% {
+    transform: scale(1.03) translate(0, 0);
+  }
+  50% {
+    transform: scale(1.1) translate(0.5%, -0.5%);
+  }
+  100% {
+    transform: scale(1.03) translate(0, 0);
+  }
+}
+
+/* Immersive FIFA Tactical Pitch Grid Background */
+.bg-pitch {
+  background-color: #050716;
+  background-image: 
+    linear-gradient(90deg, rgba(212, 175, 55, 0.015) 1px, transparent 1px),
+    linear-gradient(rgba(212, 175, 55, 0.015) 1px, transparent 1px),
+    radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.012) 1px, transparent 2px),
+    radial-gradient(circle at 50% 50%, transparent 35%, rgba(212, 175, 55, 0.02) 36%, rgba(212, 175, 55, 0.02) 38%, transparent 39%);
+  background-size: 80px 80px, 80px 80px, 40px 40px, 480px 480px;
+  background-position: center;
+}
+
+/* GPU-Accelerated Scroll Motion & Entering Animations */
+.animate-motion-fade-up {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: motionFadeUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes motionFadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-motion-slide-right {
+  opacity: 0;
+  transform: translateX(-30px);
+  animation: motionSlideRight 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes motionSlideRight {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Apple VisionOS Premium Glassmorphism & Neon Glowing Shadows */
+.glass-premium {
+  background: rgba(19, 24, 66, 0.45);
+  backdrop-filter: blur(24px) saturate(160%);
+  -webkit-backdrop-filter: blur(24px) saturate(160%);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  box-shadow: 
+    0 4px 30px rgba(0, 0, 0, 0.4),
+    inset 0 1px 1px rgba(255, 255, 255, 0.1);
+}
+
+.glass-premium-hover {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-premium-hover:hover {
+  background: rgba(19, 24, 66, 0.65);
+  border-color: rgba(212, 175, 55, 0.3);
+  box-shadow: 
+    0 10px 40px rgba(0, 0, 0, 0.6),
+    0 0 20px rgba(212, 175, 55, 0.1),
+    inset 0 1px 2px rgba(255, 255, 255, 0.2);
+  transform: translateY(-4px) scale(1.01);
+}
+
+/* Neon Glows representing Telemetry / UI Indicators */
+.neon-glow-gold {
+  box-shadow: 0 0 25px rgba(212, 175, 55, 0.35);
+  border-color: rgba(212, 175, 55, 0.6) !important;
+}
+
+.neon-glow-cyan {
+  box-shadow: 0 0 25px rgba(30, 144, 255, 0.35);
+  border-color: rgba(30, 144, 255, 0.6) !important;
+}
+
+.neon-glow-crimson {
+  box-shadow: 0 0 25px rgba(196, 30, 58, 0.35);
+  border-color: rgba(196, 30, 58, 0.6) !important;
+}
+
+.neon-glow-green {
+  box-shadow: 0 0 25px rgba(16, 185, 129, 0.35);
+  border-color: rgba(16, 185, 129, 0.6) !important;
+}
+
+/* Custom Scrollbar Styles for premium overlay look */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 99px;
+  transition: background 0.3s;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(212, 175, 55, 0.6);
+}
+
+/* Live Score pulser overlay */
+.pulse-glow-amber {
+  animation: pulseGlowAmber 2s infinite ease-in-out;
+}
+
+@keyframes pulseGlowAmber {
+  0%, 100% {
+    opacity: 0.6;
+    box-shadow: 0 0 5px rgba(212, 175, 55, 0.4);
+  }
+  50% {
+    opacity: 1;
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.8);
+  }
+}
+
